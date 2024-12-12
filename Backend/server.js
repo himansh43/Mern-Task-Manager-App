@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
     res.send('Hello from the server');
 });
-app.use('/todos',todoRoutes)
+app.use('/',todoRoutes)
 app.listen(PORT,()=>{
     console.log(`server started at PORT:${PORT}`)
 })
