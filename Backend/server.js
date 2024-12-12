@@ -12,6 +12,9 @@ const todoRoutes= require('./routes/todoRoutes')
 
 app.use(cors())
 app.use(bodyParser.json())
+app.get('/', (req, res) => {
+    res.send('Hello from the server');
+});
 app.use('/todos',todoRoutes)
 app.listen(PORT,()=>{
     console.log(`server started at PORT:${PORT}`)
