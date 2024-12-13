@@ -3,12 +3,10 @@ import { useTodosContext } from "../Context/TodoContext";
 import { deleteTodo, fetchAllTodos, updateTodo } from "../api";
 import { FaCheck, FaPencilAlt, FaTrash } from "react-icons/fa";
 import { notify } from "../utils";
-import { ToastContainer } from "react-toastify";
 
-const TodoTable = ({ setAddTodo, setEditTodo }) => {
-  const [allTodos, setAllTodos] = useTodosContext();
-
-  //handle Fetch all Todos from database
+const Table = ({ setAddTodo, setEditTodo }) => {
+    const [allTodos, setAllTodos] = useTodosContext();
+      //handle Fetch all Todos from database
   const handlegetAllTodos = async () => {
     const data = await fetchAllTodos();
     setAllTodos(data.todos);
@@ -16,6 +14,7 @@ const TodoTable = ({ setAddTodo, setEditTodo }) => {
   useEffect(() => {
     handlegetAllTodos();
   }, []);
+
 
   //handle Edit Todo functionality
   const handleEditTodo = async (todo) => {
@@ -37,6 +36,8 @@ const TodoTable = ({ setAddTodo, setEditTodo }) => {
     }
   };
 
+
+  
   //complete Todo functionality
   const handleCompleteTodo = async (todo) => {
     const { _id, todoName, isDone } = todo;
@@ -47,9 +48,10 @@ const TodoTable = ({ setAddTodo, setEditTodo }) => {
     const data = await updateTodo(obj, _id);
     handlegetAllTodos();
   };
+
   return (
     <>
-      <table className="w-[90%] border-2 border-slate-700 text-center self-start  ">
+          <table className="w-[90%] border-2 border-slate-700 text-center self-start  ">
         <thead>
           <tr className="text-xl text-center">
             <th>Id</th>
@@ -106,7 +108,17 @@ const TodoTable = ({ setAddTodo, setEditTodo }) => {
 
       </table>
     </>
-  );
-};
+  )
+}
 
-export default TodoTable;
+export default Table
+
+
+
+
+
+
+
+
+
+

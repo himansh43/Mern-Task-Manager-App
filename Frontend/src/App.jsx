@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
-import TodoTable from "./Components/todoTable";
+import Table from "./Components/Table";
 import { createTodo, fetchAllTodos, updateTodo } from "./api";
 import { useTodosContext } from "./Context/TodoContext";
 import { notify } from "./utils";
@@ -148,7 +148,7 @@ function App() {
         </div>
 
         <div className="flex justify-center m-5 overflow-auto h-[430px] ">
-          <TodoTable
+          <Table
             addTodo={addTodo}
             setAddTodo={setAddTodo}
             updateTask={updateTask}
