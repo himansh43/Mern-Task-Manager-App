@@ -25,6 +25,7 @@ const Table = ({ setAddTodo, setEditTodo }) => {
   //Delete Todo functionality
   const handleDeleteTodo = async (_id) => {
     const data = await deleteTodo(_id);
+    console.log(data)
     const { success, message } = data;
     setAllTodos(data.allTodos);
     if (success) {

@@ -2,6 +2,7 @@
 
 export const createTodo=async(todo)=>{
      const url=`https://mern-task-manager-app-backend.onrender.com/todos`
+    // const url= `http://localhost:4002/todos`
      const options={
         method:"POST",
         headers:{
@@ -16,6 +17,7 @@ export const createTodo=async(todo)=>{
 
 export const fetchAllTodos=async()=>{
     const url=`https://mern-task-manager-app-backend.onrender.com/todos`
+    // const url= `http://localhost:4002/todos`
     const options={
         method:"GET",
         headers:{
@@ -27,8 +29,9 @@ export const fetchAllTodos=async()=>{
     return data
 }
 
-export const fetchTodoById=async(id)=>{
-    const url=`https://mern-task-manager-app-backend.onrender.com/todos/${id}`
+export const fetchTodoById=async(_id)=>{
+    const url=`https://mern-task-manager-app-backend.onrender.com/todos/${_id}`
+    // const url= `http://localhost:4002/todos/${id}`
     const options={
         method:"GET",
         headers:{
@@ -40,6 +43,7 @@ export const fetchTodoById=async(id)=>{
 }
 export const updateTodo=async(obj,_id)=>{
        const url=`https://mern-task-manager-app-backend.onrender.com/todos/${_id}`
+    //    const url= `http://localhost:4002/todos/${_id}`
        const options={
         method:"PUT",
         headers:{
@@ -52,8 +56,9 @@ export const updateTodo=async(obj,_id)=>{
     return data
 }
 
-export const deleteTodo=async(id)=>{
-      const url=`https://mern-task-manager-app-backend.onrender.com/todos/${id}`
+export const deleteTodo=async(_id)=>{
+      const url=`https://mern-task-manager-app-backend.onrender.com/todos/${_id}`
+    //   const url=`http://localhost:4002/todos/${_id}`
       const options={
         method:"DELETE",
         headers:{

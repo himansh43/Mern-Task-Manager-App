@@ -34,6 +34,7 @@ const fetchTodoById=async(req,res)=>{
 const updateTodo=async(req,res)=>{
     try {
         const id= req.params.id
+        console.log("update id is",id)
         const body= req.body
         const obj = { $set: { ...body } };
 
@@ -47,6 +48,7 @@ const updateTodo=async(req,res)=>{
 const deleteTodo=async(req,res)=>{
     try {
         const id= req.params.id
+        console.log("is is",id)
         const deleteTodo= await todoModel.findByIdAndDelete(id)
         const todo= await todoModel.find().sort({"createdAt": -1})
         res.status(200).json({message:"successfully delete Todo", success:true, deletedTodo:deleteTodo,allTodos:todo})
